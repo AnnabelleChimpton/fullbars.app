@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fullbars · IRL streaming for Android</title>
+<meta name="description" content="Free, open-source Android app for IRL streaming on Twitch. Combine mobile data, Wi‑Fi and spare phones through your own BRB server, so a dead zone shows viewers a card instead of a frozen stream.">
+<meta name="theme-color" content="#0D0D0C">
+<link rel="canonical" href="https://fullbars.app/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fullbars.app/">
+<meta property="og:title" content="Fullbars · Stream from your phone. Stay live in dead zones.">
+<meta property="og:description" content="Free Android IRL streaming for Twitch, with your own BRB server for dead zones.">
+<meta property="og:image" content="https://fullbars.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/archivo_xc_800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo_sc_400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Fullbars, home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4,16h3.5v4h-3.5z M10,12h3.5v8h-3.5z M4,4h15.5v2.5h-15.5z M16,4h3.5v16h-3.5z"/></svg>
+      Fullbars
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="opt" href="#how">How it works</a>
+      <a class="opt" href="#faq">FAQ</a>
+      <a href="/setup/">Setup</a>
+      <a class="key" href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <p class="label">Android · Twitch · free and open source</p>
+      <h1 class="display" id="hero-title">Stream from your phone. Stay live in dead zones.</h1>
+      <p class="lede">Fullbars is a free Android app for streaming IRL on Twitch. It can send your stream over mobile data, a Wi‑Fi hotspot and spare phones at once, through a small server you own. When every connection drops, viewers see a card instead of a frozen stream.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download the test build</a>
+        <a class="textlink" href="/setup/">How to set it up</a>
+      </div>
+      <p class="fine">Version 0.6.0 · Android 12 or newer · a test build from GitHub, not on Google Play yet.</p>
+      <div class="ruler" data-step="0" aria-hidden="true"><span class="cursor"></span></div>
+    </div>
+    <figure class="shot reg" style="margin:0">
+      <span class="reg-b"></span>
+      <img src="/img/live-brb.jpg" width="540" height="1188" alt="The Fullbars live screen on the BRB card. A pill at the top says BRB, viewers see your BRB screen and hear you. The instrument line along the bottom shows LIVE 0:00:21, AT&T 1.8 Mb/s, Wi‑Fi 2.2 Mb/s and MIC on, over four keys: END, SCENES, MUTE and BACK LIVE.">
+      <figcaption>The live screen on the BRB card. OnePlus 12, Test stream.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">How it works</span><span class="stamp">01</span></div>
+    <div class="route-intro">
+      <h2 class="display-s" id="how-title">Several connections in. One steady stream out.</h2>
+      <p class="help" style="margin:0">With <strong style="color:var(--text)">Combine connections</strong> on, your phone splits the stream across every connection it has. Your BRB server puts it back together and sends one stream to Twitch. Try a dead zone:</p>
+    </div>
+
+    <div class="plate">
+      <div class="plate-top">
+        <div class="pill" id="pill" data-state="live" role="status" aria-live="polite">
+          <span class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <svg class="arrows" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M5 11a7 7 0 0 1 12.5-4.3M19 13a7 7 0 0 1-12.5 4.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+          <span id="pill-text">Live · Great</span>
+        </div>
+        <button class="btn secondary btn-sim" id="sim" type="button" aria-pressed="false">Drive into a dead zone</button>
+      </div>
+
+      <div class="route" id="route" data-state="live">
+        <div class="node n-phone">
+          <span class="label">Your phone</span>
+          <span class="name">Fullbars</span>
+          <span class="sub">Camera, scenes, chat and alerts are drawn here, before it sends.</span>
+        </div>
+        <div class="stub" aria-hidden="true"></div>
+        <div class="lane l1" data-link>
+          <span class="lname">Mobile data<small>The phone's own SIM</small></span>
+          <span class="meter" aria-hidden="true"><i></i><i></i><i></i><i class="off"></i></span>
+          <span class="val">1.8</span>
+        </div>
+        <div class="lane l2" data-link>
+          <span class="lname">Wi‑Fi<small>A MiFi or any hotspot</small></span>
+          <span class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="val">2.2</span>
+        </div>
+        <div class="lane l3" data-link>
+          <span class="lname">Helper phone<small>A spare phone's data</small></span>
+          <span class="meter" aria-hidden="true"><i></i><i></i><i class="off"></i><i class="off"></i></span>
+          <span class="val">1.1</span>
+        </div>
+        <div class="stub" aria-hidden="true"></div>
+        <div class="node n-server">
+          <span class="label">Your BRB server</span>
+          <span class="name">A small rented server</span>
+          <span class="sub">Puts the pieces back together. Never re-encodes, so the cheapest one is enough.</span>
+        </div>
+        <div class="lane out l-out">
+          <span class="lname" id="out-label">One stream</span>
+        </div>
+        <div class="node twitch n-twitch">
+          <span class="label">Twitch</span>
+          <span class="name"><span class="timer" id="timer">LIVE 0:24:18</span></span>
+          <div class="viewers">
+            <span class="card-thumb" aria-hidden="true"><span class="cam"></span><span class="lostbars"><span class="meter dashed"><i></i><i></i><i></i></span></span><span class="lost">Signal lost</span></span>
+            <span class="sub" style="margin:0" id="viewers-see">Viewers see you.</span>
+          </div>
+        </div>
+      </div>
+      <p class="sim-note">A simulation with made-up figures, in Mb/s. The real live screen shows each connection like this along the bottom.</p>
+    </div>
+
+    <ol class="steps3">
+      <li><div><h3>Weak spots hurt less</h3><p>Two or three connections carry the stream at once, and Fullbars lowers the quality before things stall, not after.</p></div></li>
+      <li><div><h3>Twitch never sees you drop</h3><p>In a tunnel or a dead zone, the server keeps the Twitch stream going with a Signal lost card your phone made. When you're back, the picture returns within seconds.</p></div></li>
+      <li><div><h3>Nothing runs at home</h3><p>No PC and no home internet. The server is yours, so no streaming service sits in the middle, and it never writes your stream key to its logs.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="compare" aria-labelledby="compare-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">How it compares</span><span class="stamp">02</span></div>
+    <h2 class="display-s" id="compare-title" style="max-width:16em;margin-bottom:28px">Three ways to get a phone on Twitch.</h2>
+    <div class="tbl-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Straight to Twitch</th><th scope="col">A hosted bonding service</th><th scope="col" class="us">Fullbars with your BRB server</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Connections</th><td data-col="Straight to Twitch">One at a time</td><td data-col="Hosted service">Several</td><td class="us" data-col="Fullbars">Several: mobile data, Wi‑Fi, helper phones</td></tr>
+          <tr><th scope="row">When everything drops</th><td data-col="Straight to Twitch">A frozen frame, then offline</td><td data-col="Hosted service">Depends on the service</td><td class="us" data-col="Fullbars">A Signal lost card. Twitch sees one unbroken stream</td></tr>
+          <tr><th scope="row">What it costs</th><td data-col="Straight to Twitch">Nothing</td><td data-col="Hosted service">A monthly fee</td><td class="us" data-col="Fullbars">The app is free. The server is about <span class="nw">$4–10</span> a month, or Oracle Cloud's free tier</td></tr>
+          <tr><th scope="row">Who sits in the middle</th><td data-col="Straight to Twitch">Nobody</td><td data-col="Hosted service">The service</td><td class="us" data-col="Fullbars">Only your own server</td></tr>
+          <tr><th scope="row">Where your stream key lives</th><td data-col="Straight to Twitch">On your phone</td><td data-col="Hosted service">With the service</td><td class="us" data-col="Fullbars">On your phone and your server, never in its logs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="help" style="margin-top:20px;max-width:44em">You can start straight to Twitch and add the server later. Fullbars works without one; you just don't get Combine connections, helper phones or the Signal lost card.</p>
+  </div>
+</section>
+
+<section id="features" aria-labelledby="features-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">What's in the app</span><span class="stamp">03</span></div>
+    <h2 class="sr" id="features-title">What's in the app</h2>
+    <div class="rows">
+      <div class="row"><h3>Test streams</h3><p>Test is the default. It uses Twitch's bandwidth test, so nobody can watch a test on Twitch, not even you. A pre-flight check before you start, and a recap after: "We kept you live through 3 connection drops."</p></div>
+      <div class="row"><h3>Helper phones</h3><div><p>A spare phone in your pocket adds its mobile data. While you're live it joins your streaming phone's hotspot by itself, so there's nothing to type.</p><p class="tagline help">Helpers speak Moblin's Moblink protocol, so Moblin's helpers should work too. So far it's tested with Fullbars on both phones.</p></div></div>
+      <div class="row"><h3>DJI Pocket 3 <span class="tag dashed">Labs</span></h3><div><p>Fullbars starts the Pocket's stream over Bluetooth and takes it in over Wi‑Fi, so the Pocket works as a wireless camera on Android.</p><p class="tagline help">Unofficial: DJI doesn't support it, and it sits behind a Labs switch. Other RTMP cameras work too.</p></div></div>
+      <div class="row"><h3>Scenes</h3><p>BRB, Privacy, Starting soon and Ending, one tap away, plus an automatic Weak signal screen. Your phone draws them, so they look the same with or without the server.</p></div>
+      <div class="row"><h3>Chat, alerts and overlays</h3><p>Chat on your screen and on stream, Twitch alerts with sound, tips, chat read aloud into your earbuds, and text, image or StreamElements and Streamlabs web overlays.</p></div>
+      <div class="row"><h3>Your mods</h3><p>Mod chat commands, and a web remote your mods can open to switch scenes for you.</p></div>
+      <div class="row"><h3>My OBS</h3><p>Streaming through OBS at home? The server can feed your OBS instead of Twitch, and NOALBS can switch scenes from its stats.</p></div>
+    </div>
+
+    <div class="screens" style="margin-top:48px">
+      <figure><img src="/img/live-weak.jpg" width="540" height="1188" loading="lazy" alt="The live screen during a weak signal: an amber full-width pill says Live, Weak signal, viewers see your Weak signal screen and hear you. The AT&T column is amber at 0.3 Mb/s; Wi‑Fi shows 2.1 Mb/s."><figcaption>Weak signal: the pill turns amber and says what viewers see.</figcaption></figure>
+      <figure><img src="/img/live-starting-soon.jpg" width="540" height="1188" loading="lazy" alt="The live screen on the Starting soon card, a light card with the headline Starting soon and the line Getting the rig ready. Not long now."><figcaption>Starting soon, one of four scenes you pick.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="new" aria-labelledby="new-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">New in 0.6</span><span class="stamp">0.6.0 · Nov 2026</span></div>
+    <div class="release">
+      <div>
+        <h2 class="display-s" id="new-title">Your mic, your level.</h2>
+        <p class="lede" style="margin-top:16px">Some phones turn everything up on their own, room noise and all, and loud talking distorts. On a OnePlus 12, the phone's own processing runs about 28 dB hotter than the raw mic, which is why streamers on it sound blown out.</p>
+        <div class="figures" role="list">
+          <div role="listitem"><span class="label">Fader, up to</span><span class="v">+30 dB</span></div>
+          <div role="listitem"><span class="label">Limiter</span><span class="v">−1 dBFS</span></div>
+          <div role="listitem"><span class="label">Hotter</span><span class="v">≈28 dB</span></div>
+        </div>
+        <div class="rows">
+          <div class="row"><h3>A live level meter</h3><p>Talk the way you will on stream and watch where your voice lands.</p></div>
+          <div class="row"><h3>Phone's auto level</h3><p>Turn it off to get the raw mic and set the level yourself.</p></div>
+          <div class="row"><h3>A limiter</h3><p>When something's too loud, Fullbars turns it down for a moment instead of distorting.</p></div>
+          <div class="row"><h3>Landscape setup</h3><p>Stream sideways and the whole app sets up sideways too, even with rotation lock on: the checklist on the left, the go-live button under your right thumb.</p></div>
+          <div class="row"><h3>The Instrument design</h3><p>One dark plate over the video. Quiet while things are fine, loud only when something's wrong.</p></div>
+        </div>
+        <p class="help" style="margin-top:16px">Set the mic in Settings › Microphone before you go live, or tap MIC on the live screen.</p>
+      </div>
+      <figure class="shot reg" style="margin:0">
+        <span class="reg-b"></span>
+        <img src="/img/settings-microphone.jpg" width="540" height="1143" loading="lazy" alt="Settings, Microphone: a level meter saying Good level, the mic level fader at 0 dB, and the Phone's auto level switch.">
+        <figcaption>Settings › Microphone.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="start" aria-labelledby="start-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">Get started</span><span class="stamp">04</span></div>
+    <h2 class="display-s" id="start-title" style="margin-bottom:12px">Live in 90 seconds. The BRB server takes an evening.</h2>
+    <p class="help" style="max-width:40em;margin-bottom:28px">Steps 1 to 3 get you streaming straight to Twitch. Steps 4 and 5 are optional, and they're what keep you live when the signal goes.</p>
+    <table class="plan">
+      <thead><tr><th scope="col"><span class="sr">Step</span></th><th scope="col">What</th><th scope="col">Time</th><th scope="col">Cost</th></tr></thead>
+      <tbody>
+        <tr><td class="n">1</td><td class="what"><a href="/setup/#install">Install the app</a></td><td class="t">2 min</td><td class="c">Free</td></tr>
+        <tr><td class="n">2</td><td class="what"><a href="/setup/#twitch">Sign in with Twitch</a></td><td class="t">1 min</td><td class="c">Free</td></tr>
+        <tr><td class="n">3</td><td class="what"><a href="/setup/#test">Do a Test stream</a></td><td class="t">5 min</td><td class="c">Your data</td></tr>
+        <tr><td class="n">4</td><td class="what"><a href="/setup/#server">Set up your BRB server</a><small>Optional. Rent a small server and pair it by QR code.</small></td><td class="t">30–60 min, once</td><td class="c"><span class="nw">$4–10</span> a month</td></tr>
+        <tr><td class="n">5</td><td class="what"><a href="/setup/#more">Add helper phones and a hotspot</a><small>Optional. Needs step 4.</small></td><td class="t">10 min</td><td class="c">Their data plans</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:28px"><a class="btn primary" href="/setup/">Read the setup guide</a></p>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">Questions</span><span class="stamp">05</span></div>
+    <h2 class="display-s" id="faq-title" style="margin-bottom:24px">FAQ</h2>
+    <div class="faq">
+      <details><summary>Is it really free?</summary><div class="a"><p>Yes. The app is free and open source (GPL-3.0). The only thing you might pay for is your BRB server, which you rent yourself from any provider, usually <span class="nw">$4–10</span> a month. Oracle Cloud's free tier works too. Fullbars doesn't take a cut or see your stream.</p></div></details>
+      <details><summary>Which phones does it work on?</summary><div class="a"><p>Android 12 or newer. So far it's been tested on a OnePlus 12 (Android 16) as the streaming phone, with a Pixel 5 (Android 14) as a helper. Other phones should work, but they haven't been tested yet. If yours misbehaves, please open an issue on GitHub.</p></div></details>
+      <details><summary>Is there an iPhone version?</summary><div class="a"><p>No, Fullbars is Android only.</p></div></details>
+      <details><summary>Do I need the BRB server?</summary><div class="a"><p>No. Without one, Fullbars streams straight to Twitch over one connection, and scenes, chat, alerts and overlays all still work. The server is what lets you combine connections, use helper phones, and stay on air when everything drops.</p></div></details>
+      <details><summary>What do viewers see when I lose signal?</summary><div class="a"><p>With the BRB server, a Signal lost card ("The stream picks up when the connection's back") made by your phone to match your stream. Twitch sees one unbroken stream, and your picture comes back within seconds of your signal. If you're gone for 10 minutes, the server ends the stream.</p><p>Without the server, viewers see a frozen frame, and Twitch may show you as offline until your phone reconnects.</p></div></details>
+      <details><summary>How much data does it use?</summary><div class="a"><p>At 1080p and 6 Mb/s, about 2.8 GB an hour, split across your connections. Home shows the figure for the quality you pick before you go live. Fullbars lowers the quality on its own when the signal gets weak.</p></div></details>
+      <details><summary>Is my stream key safe?</summary><div class="a"><p>Sign in with Twitch and Fullbars fetches your key; you never copy it anywhere. With a BRB server, the phone sends it over an encrypted connection that trusts only your server's key, from the pairing QR code. The server keeps it in a file only it can read and never prints or logs it. The stream itself is encrypted between your phone and your server.</p></div></details>
+      <details><summary>Does the DJI Pocket 3 work?</summary><div class="a"><p>Yes, as a Labs feature. Turn on Labs on the Camera page, and Fullbars finds the Pocket over Bluetooth, starts its stream and takes it in over Wi‑Fi. It's unofficial: DJI doesn't support it, and a future Pocket firmware could break it. Any camera that can stream RTMP works too.</p></div></details>
+      <details><summary>Can I stream to YouTube or Kick?</summary><div class="a"><p>Not today. Fullbars streams to Twitch, or through your BRB server to your own OBS at home.</p></div></details>
+      <details><summary>Is it on Google Play?</summary><div class="a"><p>Not yet. Test builds are on GitHub. They're debug-signed, so when a release-signed build arrives you'll need to uninstall the test build first.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section id="licences" aria-labelledby="lic-title">
+  <div class="wrap">
+    <div class="sh"><span class="label">Open source</span><span class="stamp">06</span></div>
+    <h2 class="display-s" id="lic-title" style="margin-bottom:12px">Licences</h2>
+    <p class="help" style="max-width:40em;margin-bottom:24px">All the source is on <a href="https://github.com/AnnabelleChimpton/fullbars">GitHub</a>.</p>
+    <dl class="lic">
+      <div><dt>The Fullbars app</dt><dd>GPL-3.0-or-later</dd></div>
+      <div><dt>The BRB server</dt><dd>Apache-2.0</dd></div>
+      <div><dt>srtla-kt, the bonding</dt><dd>Apache-2.0</dd></div>
+      <div><dt>srtla_rec, inside the BRB server</dt><dd>AGPL-3.0, BELABOX's SRTLA receiver, built unmodified</dd></div>
+      <div><dt>Archivo and JetBrains Mono, the type</dt><dd>SIL Open Font License 1.1 (<a href="/fonts/OFL-Archivo.txt">Archivo</a>, <a href="/fonts/OFL-JetBrainsMono.txt">JetBrains Mono</a>)</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="/setup/">Setup guide</a>
+      <a href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download</a>
+      <a href="https://github.com/AnnabelleChimpton/fullbars">Source</a>
+      <a href="https://github.com/AnnabelleChimpton/fullbars/issues">Report a problem</a>
+    </div>
+    <p style="margin:0">Twitch is a trademark of Twitch Interactive, Inc. DJI and Osmo Pocket are trademarks of SZ DJI Technology Co., Ltd. Fullbars isn't affiliated with either.</p>
+    <p style="margin:0">This site has no cookies, tracking or analytics.</p>
+  </div>
+</footer>
+</body>
+</html>
