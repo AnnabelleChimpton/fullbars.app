@@ -34,7 +34,7 @@
       <a class="opt" href="/#how">How it works</a>
       <a class="opt" href="/#faq">FAQ</a>
       <a href="/setup/" aria-current="page">Setup</a>
-      <a class="key" href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download</a>
+      <a class="key" href="https://github.com/AnnabelleChimpton/fullbars/releases">Download</a>
     </nav>
   </div>
 </header>
@@ -45,13 +45,14 @@
   <div class="page-head">
     <p class="label">Setup guide · version 0.6.0</p>
     <h1 class="display">Set up Fullbars.</h1>
-    <p class="lede">Steps 1 to 3 get you live on Twitch from your phone. Steps 4 and 5 are optional: they're what keep you live in dead zones. Each step says what it costs, how long it takes, and why it's worth it.</p>
+    <p class="lede">Steps 1 to 3 get you live on Twitch from your phone. Steps 4 to 6 are optional: they keep you live in dead zones, add more connections, and send your stream to Kick or YouTube too. Each step says what it costs, how long it takes, and why it's worth it.</p>
     <ol class="toc">
       <li><a href="#install"><span class="n">1</span><span class="w">Install the app</span><span class="t">2 min · free</span></a></li>
       <li><a href="#twitch"><span class="n">2</span><span class="w">Sign in with Twitch</span><span class="t">1 min · free</span></a></li>
       <li><a href="#test"><span class="n">3</span><span class="w">Do a Test stream</span><span class="t">5 min · your data</span></a></li>
       <li><a href="#server"><span class="n">4</span><span class="w">Set up your BRB server <span class="tag dashed">Optional</span></span><span class="t">30–60 min · <span class="nw">$4–10</span>/month</span></a></li>
       <li><a href="#more"><span class="n">5</span><span class="w">Add helper phones and a hotspot <span class="tag dashed">Optional</span></span><span class="t">10 min</span></a></li>
+      <li><a href="#also"><span class="n">6</span><span class="w">Also stream to Kick or YouTube <span class="tag dashed">Optional</span></span><span class="t">5 min · free</span></a></li>
     </ol>
   </div>
 
@@ -66,7 +67,7 @@
     <p class="why"><span class="label">Why</span>Fullbars isn't on Google Play yet, so you install the test build from GitHub yourself.</p>
     <div class="body">
       <ol>
-        <li>On your phone, open the <a href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">latest release on GitHub</a> and download the <code>.apk</code> file under <span class="path">Assets</span>.</li>
+        <li>On your phone, open the <a href="https://github.com/AnnabelleChimpton/fullbars/releases">latest release on GitHub</a> and download the <code>.apk</code> file under <span class="path">Assets</span>.</li>
         <li>Open the downloaded file. Android asks whether your browser may install apps: allow it, then tap <span class="path">Install</span>.</li>
         <li>Android may warn that the app is unknown. That's normal for apps from outside Google Play.</li>
       </ol>
@@ -129,7 +130,7 @@
 
       <h3><span class="fig">4a</span>Rent a small server</h3>
       <ol>
-        <li>Pick any VPS provider (Hetzner, DigitalOcean, Vultr, OVH and Linode all work) and create the smallest server with <strong>Ubuntu 24.04</strong>. 1 GB of memory is plenty: the BRB server uses about 256 MB and almost no CPU, because it never re-encodes your video. Pick a location near where you stream.</li>
+        <li>Pick any VPS provider (Hetzner, DigitalOcean, Vultr, OVH and Linode all work) and create the smallest server with <strong>Ubuntu 24.04</strong>. 1 GB of memory is plenty: the BRB server is capped at 256 MB, uses far less, and needs almost no CPU, because it never re-encodes your video. Pick a location near where you stream.</li>
         <li>When it asks how to log in, add an SSH key if you have one, or set a root password and keep it somewhere safe.</li>
         <li>Note the server's <strong>public IPv4 address</strong>. That's your <code>YOUR_SERVER_ADDRESS</code>.</li>
       </ol>
@@ -165,10 +166,10 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
 
       <h3><span class="fig">4e</span>Pair the app</h3>
       <ol>
-        <li>Make sure you've signed in to Twitch in Fullbars (step 2). The app sends your Twitch details to the server from that sign-in.</li>
+        <li>Make sure you've signed in to Twitch in Fullbars (step 2), or added a stream key. The app sends your Twitch details to the server each time you go live.</li>
         <li>On your computer, ask the server for a pairing code:
           <div class="cmd" data-what="show the pairing code"><div class="cmd-h"><span class="label">On your computer</span></div><pre>ssh -t root@<span class="ph">YOUR_SERVER_ADDRESS</span> docker exec -it fullbars-brb brb pair</pre></div>
-          A QR code appears in the terminal. It reads best on a dark terminal.</li>
+          A QR code appears in the terminal.</li>
         <li>In Fullbars, open <span class="path">Settings › Combine connections</span>, turn on <span class="path">Combine connections</span>, tap <span class="path">Scan pairing code</span>, and scan it.</li>
       </ol>
       <p class="note"><strong>Treat the code like a password:</strong> whoever has it can stream through your server. If it leaks, run <code>docker exec -it fullbars-brb brb pair -reset</code> on the server and pair again.</p>
@@ -213,6 +214,27 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
     </div>
   </section>
 
+  <!-- 6 -->
+  <section class="step" id="also" aria-labelledby="s6">
+    <div class="step-head"><span class="num" aria-hidden="true">6</span><h2 class="title" id="s6"><span class="sr">Step 6: </span>Also stream to Kick or YouTube</h2><span class="opt"><span class="tag dashed" style="margin:0">Optional</span></span></div>
+    <dl class="meta">
+      <div><dt class="label">Time</dt><dd>About 5 minutes</dd></div>
+      <div><dt class="label">Cost</dt><dd>Free</dd></div>
+      <div><dt class="label">You need</dt><dd>Step 4</dd></div>
+    </dl>
+    <p class="why"><span class="label">Why</span>Reach viewers on Kick or YouTube without sending your stream twice. Your phone uploads it once, and your BRB server sends the copies.</p>
+    <div class="body">
+      <ol>
+        <li>In Fullbars, open <span class="path">Settings › Also stream to</span>.</li>
+        <li><strong>Kick:</strong> turn on <span class="path">Stream to Kick</span>. In Kick's creator dashboard, under <span class="path">Settings › Stream</span>, copy the Stream URL and the Stream key into Fullbars.</li>
+        <li><strong>YouTube:</strong> turn on <span class="path">Stream to YouTube</span>. In YouTube Studio, under <span class="path">Go live › Stream</span>, copy the stream key into Fullbars.</li>
+        <li><strong>Anything else:</strong> <span class="path">Other server</span> takes any RTMP address and stream key.</li>
+        <li>Go live with <span class="path">LIVE · public</span>. Test streams never go to these.</li>
+      </ol>
+      <p class="note">Up to three at once. Each one adds your stream's bitrate to your server's upload, not your phone's. Chat, alerts and mod commands stay on Twitch. If one refuses the stream, Twitch carries on, and the page says why. Set up your server before this feature arrived? Update it first (see the end of 4f).</p>
+    </div>
+  </section>
+
   <section class="step" aria-labelledby="next">
     <div class="sh"><span class="label">Next</span></div>
     <h2 class="display-s" id="next" style="margin-bottom:16px">That's the whole rig.</h2>
@@ -227,7 +249,7 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
   <div class="wrap">
     <div class="links">
       <a href="/">Home</a>
-      <a href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download</a>
+      <a href="https://github.com/AnnabelleChimpton/fullbars/releases">Download</a>
       <a href="https://github.com/AnnabelleChimpton/fullbars">Source</a>
       <a href="https://github.com/AnnabelleChimpton/fullbars/issues">Report a problem</a>
     </div>

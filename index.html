@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fullbars · IRL streaming for Android</title>
-<meta name="description" content="Free, open-source Android app for IRL streaming on Twitch. Combine mobile data, Wi‑Fi and spare phones through your own BRB server, so a dead zone shows viewers a card instead of a frozen stream.">
+<meta name="description" content="Free, open-source Android app for IRL streaming on Twitch. Combine mobile data, Wi‑Fi and spare phones through your own BRB server, so a dead zone shows viewers a card instead of a frozen stream. It can also send the stream to Kick and YouTube.">
 <meta name="theme-color" content="#0D0D0C">
 <link rel="canonical" href="https://fullbars.app/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -34,7 +34,7 @@
       <a class="opt" href="#how">How it works</a>
       <a class="opt" href="#faq">FAQ</a>
       <a href="/setup/">Setup</a>
-      <a class="key" href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download</a>
+      <a class="key" href="https://github.com/AnnabelleChimpton/fullbars/releases">Download</a>
     </nav>
   </div>
 </header>
@@ -48,7 +48,7 @@
       <h1 class="display" id="hero-title">Stream from your phone. Stay live in dead zones.</h1>
       <p class="lede">Fullbars is a free Android app for streaming IRL on Twitch. It can send your stream over mobile data, a Wi‑Fi hotspot and spare phones at once, through a small server you own. When every connection drops, viewers see a card instead of a frozen stream.</p>
       <div class="ctas">
-        <a class="btn primary" href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download the test build</a>
+        <a class="btn primary" href="https://github.com/AnnabelleChimpton/fullbars/releases">Download the test build</a>
         <a class="textlink" href="/setup/">How to set it up</a>
       </div>
       <p class="fine">Version 0.6.0 · Android 12 or newer · a test build from GitHub, not on Google Play yet.</p>
@@ -125,7 +125,7 @@
 
     <ol class="steps3">
       <li><div><h3>Weak spots hurt less</h3><p>Two or three connections carry the stream at once, and Fullbars lowers the quality before things stall, not after.</p></div></li>
-      <li><div><h3>Twitch never sees you drop</h3><p>In a tunnel or a dead zone, the server keeps the Twitch stream going with a Signal lost card your phone made. When you're back, the picture returns within seconds.</p></div></li>
+      <li><div><h3>Dropouts don't end your stream</h3><p>In a tunnel or a dead zone, the server keeps the Twitch stream going with a Signal lost card your phone made, for up to 10 minutes. When you're back, the picture returns within seconds.</p></div></li>
       <li><div><h3>Nothing runs at home</h3><p>No PC and no home internet. The server is yours, so no streaming service sits in the middle, and it never writes your stream key to its logs.</p></div></li>
     </ol>
   </div>
@@ -142,14 +142,15 @@
         </thead>
         <tbody>
           <tr><th scope="row">Connections</th><td data-col="Straight to Twitch">One at a time</td><td data-col="Hosted service">Several</td><td class="us" data-col="Fullbars">Several: mobile data, Wi‑Fi, helper phones</td></tr>
-          <tr><th scope="row">When everything drops</th><td data-col="Straight to Twitch">A frozen frame, then offline</td><td data-col="Hosted service">Depends on the service</td><td class="us" data-col="Fullbars">A Signal lost card. Twitch sees one unbroken stream</td></tr>
-          <tr><th scope="row">What it costs</th><td data-col="Straight to Twitch">Nothing</td><td data-col="Hosted service">A monthly fee</td><td class="us" data-col="Fullbars">The app is free. The server is about <span class="nw">$4–10</span> a month, or Oracle Cloud's free tier</td></tr>
+          <tr><th scope="row">When everything drops</th><td data-col="Straight to Twitch">A frozen frame, then offline. Twitch's Disconnect Protection can show its own fixed message for up to 90 seconds</td><td data-col="Hosted service">Depends on the service</td><td class="us" data-col="Fullbars">Your Signal lost card, for up to 10 minutes. Twitch sees one unbroken stream</td></tr>
+          <tr><th scope="row">Kick and YouTube too</th><td data-col="Straight to Twitch">Twitch only</td><td data-col="Hosted service">Depends on the service</td><td class="us" data-col="Fullbars">Your server also sends it to Kick, YouTube or any RTMP server. Your phone uploads once</td></tr>
+          <tr><th scope="row">What it costs</th><td data-col="Straight to Twitch">Nothing</td><td data-col="Hosted service">A monthly fee</td><td class="us" data-col="Fullbars">The app is free. The server is about $4&#8288;–&#8288;10 a month, or Oracle Cloud's free tier</td></tr>
           <tr><th scope="row">Who sits in the middle</th><td data-col="Straight to Twitch">Nobody</td><td data-col="Hosted service">The service</td><td class="us" data-col="Fullbars">Only your own server</td></tr>
           <tr><th scope="row">Where your stream key lives</th><td data-col="Straight to Twitch">On your phone</td><td data-col="Hosted service">With the service</td><td class="us" data-col="Fullbars">On your phone and your server, never in its logs</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="help" style="margin-top:20px;max-width:44em">You can start straight to Twitch and add the server later. Fullbars works without one; you just don't get Combine connections, helper phones or the Signal lost card.</p>
+    <p class="help" style="margin-top:20px;max-width:44em">You can start straight to Twitch and add the server later. Fullbars works without one; you just don't get Combine connections, helper phones, the Signal lost card or Also stream to.</p>
   </div>
 </section>
 
@@ -161,15 +162,17 @@
       <div class="row"><h3>Test streams</h3><p>Test is the default. It uses Twitch's bandwidth test, so nobody can watch a test on Twitch, not even you. A pre-flight check before you start, and a recap after: "We kept you live through 3 connection drops."</p></div>
       <div class="row"><h3>Helper phones</h3><div><p>A spare phone in your pocket adds its mobile data. While you're live it joins your streaming phone's hotspot by itself, so there's nothing to type.</p><p class="tagline help">Helpers speak Moblin's Moblink protocol, so Moblin's helpers should work too. So far it's tested with Fullbars on both phones.</p></div></div>
       <div class="row"><h3>DJI Pocket 3 <span class="tag dashed">Labs</span></h3><div><p>Fullbars starts the Pocket's stream over Bluetooth and takes it in over Wi‑Fi, so the Pocket works as a wireless camera on Android.</p><p class="tagline help">Unofficial: DJI doesn't support it, and it sits behind a Labs switch. Other RTMP cameras work too.</p></div></div>
-      <div class="row"><h3>Scenes</h3><p>BRB, Privacy, Starting soon and Ending, one tap away, plus an automatic Weak signal screen. Your phone draws them, so they look the same with or without the server.</p></div>
-      <div class="row"><h3>Chat, alerts and overlays</h3><p>Chat on your screen and on stream, Twitch alerts with sound, tips, chat read aloud into your earbuds, and text, image or StreamElements and Streamlabs web overlays.</p></div>
+      <div class="row"><h3>Scene cards</h3><div><p>Starting soon, BRB, Privacy and Ending, one tap away, plus automatic Signal lost, Weak signal and Camera lost cards. Your phone draws them, so they look the same with or without the server.</p><p class="tagline help">Make each one yours: your words, a picture, a still or GIF background, a layout and an accent colour. Add a countdown, a time-away counter, chat on the card, or a web page instead of the card.</p></div></div>
+      <div class="row"><h3>Alerts</h3><p>Follows, subs, gift subs, bits, raids and tips, drawn on stream with sound. Give each kind your own words and picture, and try one before you go live.</p></div>
+      <div class="row"><h3>Chat and overlays</h3><p>Twitch chat with emotes, on your screen and on stream. Chat read aloud into your earbuds. Text, image, or StreamElements and Streamlabs web overlays.</p></div>
+      <div class="row"><h3>Also stream to</h3><div><p>Your BRB server can send the same stream to Kick, YouTube or any RTMP server too, up to three at once. Your phone still uploads it only once.</p><p class="tagline help">Chat, alerts and mod commands stay on Twitch. Test streams never go anywhere else.</p></div></div>
       <div class="row"><h3>Your mods</h3><p>Mod chat commands, and a web remote your mods can open to switch scenes for you.</p></div>
       <div class="row"><h3>My OBS</h3><p>Streaming through OBS at home? The server can feed your OBS instead of Twitch, and NOALBS can switch scenes from its stats.</p></div>
     </div>
 
     <div class="screens" style="margin-top:48px">
       <figure><img src="/img/live-weak.jpg" width="540" height="1188" loading="lazy" alt="The live screen during a weak signal: an amber full-width pill says Live, Weak signal, viewers see your Weak signal screen and hear you. The AT&T column is amber at 0.3 Mb/s; Wi‑Fi shows 2.1 Mb/s."><figcaption>Weak signal: the pill turns amber and says what viewers see.</figcaption></figure>
-      <figure><img src="/img/live-starting-soon.jpg" width="540" height="1188" loading="lazy" alt="The live screen on the Starting soon card, a light card with the headline Starting soon and the line Getting the rig ready. Not long now."><figcaption>Starting soon, one of four scenes you pick.</figcaption></figure>
+      <figure><img src="/img/live-starting-soon.jpg" width="540" height="1188" loading="lazy" alt="The live screen on the Starting soon card, a light card with the headline Starting soon and the line Getting the rig ready. Not long now."><figcaption>Starting soon, one of the scene cards you can make your own.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -192,6 +195,7 @@
           <div class="row"><h3>A limiter</h3><p>When something's too loud, Fullbars turns it down for a moment instead of distorting.</p></div>
           <div class="row"><h3>Landscape setup</h3><p>Stream sideways and the whole app sets up sideways too, even with rotation lock on: the checklist on the left, the go-live button under your right thumb.</p></div>
           <div class="row"><h3>The Instrument design</h3><p>One dark plate over the video. Quiet while things are fine, loud only when something's wrong.</p></div>
+          <div class="row"><h3>Also new</h3><p>Scene cards you can make your own, your own words and picture on alerts, Twitch emotes in chat, and Also stream to for Kick and YouTube.</p></div>
         </div>
         <p class="help" style="margin-top:16px">Set the mic in Settings › Microphone before you go live, or tap MIC on the live screen.</p>
       </div>
@@ -208,7 +212,7 @@
   <div class="wrap">
     <div class="sh"><span class="label">Get started</span><span class="stamp">04</span></div>
     <h2 class="display-s" id="start-title" style="margin-bottom:12px">Live in 90 seconds. The BRB server takes an evening.</h2>
-    <p class="help" style="max-width:40em;margin-bottom:28px">Steps 1 to 3 get you streaming straight to Twitch. Steps 4 and 5 are optional, and they're what keep you live when the signal goes.</p>
+    <p class="help" style="max-width:40em;margin-bottom:28px">Steps 1 to 3 get you streaming straight to Twitch. Steps 4 to 6 are optional: they keep you live when the signal goes, and add Kick and YouTube.</p>
     <table class="plan">
       <thead><tr><th scope="col"><span class="sr">Step</span></th><th scope="col">What</th><th scope="col">Time</th><th scope="col">Cost</th></tr></thead>
       <tbody>
@@ -217,6 +221,7 @@
         <tr><td class="n">3</td><td class="what"><a href="/setup/#test">Do a Test stream</a></td><td class="t">5 min</td><td class="c">Your data</td></tr>
         <tr><td class="n">4</td><td class="what"><a href="/setup/#server">Set up your BRB server</a><small>Optional. Rent a small server and pair it by QR code.</small></td><td class="t">30–60 min, once</td><td class="c"><span class="nw">$4–10</span> a month</td></tr>
         <tr><td class="n">5</td><td class="what"><a href="/setup/#more">Add helper phones and a hotspot</a><small>Optional. Needs step 4.</small></td><td class="t">10 min</td><td class="c">Their data plans</td></tr>
+        <tr><td class="n">6</td><td class="what"><a href="/setup/#also">Also stream to Kick or YouTube</a><small>Optional. Needs step 4.</small></td><td class="t">5 min</td><td class="c">Free</td></tr>
       </tbody>
     </table>
     <p style="margin-top:28px"><a class="btn primary" href="/setup/">Read the setup guide</a></p>
@@ -232,11 +237,12 @@
       <details><summary>Which phones does it work on?</summary><div class="a"><p>Android 12 or newer. So far it's been tested on a OnePlus 12 (Android 16) as the streaming phone, with a Pixel 5 (Android 14) as a helper. Other phones should work, but they haven't been tested yet. If yours misbehaves, please open an issue on GitHub.</p></div></details>
       <details><summary>Is there an iPhone version?</summary><div class="a"><p>No, Fullbars is Android only.</p></div></details>
       <details><summary>Do I need the BRB server?</summary><div class="a"><p>No. Without one, Fullbars streams straight to Twitch over one connection, and scenes, chat, alerts and overlays all still work. The server is what lets you combine connections, use helper phones, and stay on air when everything drops.</p></div></details>
-      <details><summary>What do viewers see when I lose signal?</summary><div class="a"><p>With the BRB server, a Signal lost card ("The stream picks up when the connection's back") made by your phone to match your stream. Twitch sees one unbroken stream, and your picture comes back within seconds of your signal. If you're gone for 10 minutes, the server ends the stream.</p><p>Without the server, viewers see a frozen frame, and Twitch may show you as offline until your phone reconnects.</p></div></details>
+      <details><summary>What do viewers see when I lose signal?</summary><div class="a"><p>With the BRB server, a Signal lost card ("The stream picks up when the connection's back") made by your phone to match your stream. Twitch sees one unbroken stream, and your picture comes back within seconds of your signal. If you're gone for 10 minutes, the server ends the stream.</p><p>Without the server, viewers see a frozen frame, and Twitch may show you as offline until your phone reconnects. If Disconnect Protection is on in your Twitch settings, Twitch can show its own fixed message for up to 90 seconds instead; we haven't tested that with Fullbars yet.</p></div></details>
       <details><summary>How much data does it use?</summary><div class="a"><p>At 1080p and 6 Mb/s, about 2.8 GB an hour, split across your connections. Home shows the figure for the quality you pick before you go live. Fullbars lowers the quality on its own when the signal gets weak.</p></div></details>
-      <details><summary>Is my stream key safe?</summary><div class="a"><p>Sign in with Twitch and Fullbars fetches your key; you never copy it anywhere. With a BRB server, the phone sends it over an encrypted connection that trusts only your server's key, from the pairing QR code. The server keeps it in a file only it can read and never prints or logs it. The stream itself is encrypted between your phone and your server.</p></div></details>
+      <details><summary>Is my stream key safe?</summary><div class="a"><p>Sign in with Twitch and Fullbars fetches your key; you never copy it anywhere. With a BRB server, the phone sends it over an encrypted connection that trusts only your server's key, from the pairing QR code. The server keeps it in a file only it can read and never prints or logs it. Kick or YouTube keys you add for Also stream to are kept the same way. The stream itself is encrypted between your phone and your server.</p></div></details>
       <details><summary>Does the DJI Pocket 3 work?</summary><div class="a"><p>Yes, as a Labs feature. Turn on Labs on the Camera page, and Fullbars finds the Pocket over Bluetooth, starts its stream and takes it in over Wi‑Fi. It's unofficial: DJI doesn't support it, and a future Pocket firmware could break it. Any camera that can stream RTMP works too.</p></div></details>
-      <details><summary>Can I stream to YouTube or Kick?</summary><div class="a"><p>Not today. Fullbars streams to Twitch, or through your BRB server to your own OBS at home.</p></div></details>
+      <details><summary>Can I stream to YouTube or Kick?</summary><div class="a"><p>Yes, with your BRB server. <span class="path">Settings › Also stream to</span> sends the same stream to Kick, YouTube or any RTMP server, up to three at once, next to Twitch. Your phone uploads it once; the server sends the copies. Chat, alerts and mod commands stay on Twitch, and Test streams never go anywhere else.</p><p>Without the server, Fullbars streams to Twitch only.</p></div></details>
+      <details><summary>Does the app collect anything?</summary><div class="a"><p>No. There's no account with us, and no analytics or crash reporting. The app talks only to Twitch, to StreamElements or Streamlabs if you add them, to web pages you add as overlays or cards, and to your own BRB server.</p></div></details>
       <details><summary>Is it on Google Play?</summary><div class="a"><p>Not yet. Test builds are on GitHub. They're debug-signed, so when a release-signed build arrives you'll need to uninstall the test build first.</p></div></details>
     </div>
   </div>
@@ -263,11 +269,11 @@
   <div class="wrap">
     <div class="links">
       <a href="/setup/">Setup guide</a>
-      <a href="https://github.com/AnnabelleChimpton/fullbars/releases/latest">Download</a>
+      <a href="https://github.com/AnnabelleChimpton/fullbars/releases">Download</a>
       <a href="https://github.com/AnnabelleChimpton/fullbars">Source</a>
       <a href="https://github.com/AnnabelleChimpton/fullbars/issues">Report a problem</a>
     </div>
-    <p style="margin:0">Twitch is a trademark of Twitch Interactive, Inc. DJI and Osmo Pocket are trademarks of SZ DJI Technology Co., Ltd. Fullbars isn't affiliated with either.</p>
+    <p style="margin:0">Twitch is a trademark of Twitch Interactive, Inc. DJI and Osmo Pocket are trademarks of SZ DJI Technology Co., Ltd. Kick, YouTube, StreamElements, Streamlabs and Moblin belong to their owners. Fullbars isn't affiliated with any of them.</p>
     <p style="margin:0">This site has no cookies, tracking or analytics.</p>
   </div>
 </footer>
