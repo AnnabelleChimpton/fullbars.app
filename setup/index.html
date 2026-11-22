@@ -43,7 +43,7 @@
 <div class="wrap">
 
   <div class="page-head">
-    <p class="label">Setup guide · version 0.6.0</p>
+    <p class="label">Setup guide · version 0.7.0</p>
     <h1 class="display">Set up Fullbars.</h1>
     <p class="lede">Steps 1 to 3 get you live on Twitch from your phone. Steps 4 to 6 are optional: they keep you live in dead zones, add more connections, and send your stream to Kick or YouTube too. Each step says what it costs, how long it takes, and why it's worth it.</p>
     <ol class="toc">
@@ -108,9 +108,9 @@
     <div class="body">
       <ol>
         <li><strong>Check your mic.</strong> Open <span class="path">Settings › Microphone</span> and talk the way you will on stream. Your voice should reach the marked range, and only touch amber when you shout. If you sound too loud or harsh, turn off <span class="path">Phone's auto level</span> and set the level with the fader.</li>
-        <li><strong>Start the test.</strong> On Home, <span class="path">TEST only you</span> is picked by default. Tap <span class="path">Start test</span>.</li>
-        <li><strong>Walk around.</strong> Try the keys along the bottom: <span class="path">BRB</span> puts your BRB card up, <span class="path">SCENES</span> has the rest. The pill at the top says what viewers would see.</li>
-        <li><strong>End it.</strong> Hold <span class="path">END</span> for 2 seconds. The recap shows how long it ran and how many times the connection dropped. Tap <span class="path">Check it arrived in Twitch Inspector</span> to see it on Twitch's side.</li>
+        <li><strong>Start the test.</strong> On Home, <span class="path">TEST private</span> is picked by default. Tap <span class="path">Start test</span>. You see a preview first, with the mic meter and your connections: nothing is sent yet. Choose whether viewers start on your camera or your Starting soon card, then tap <span class="path">START TEST</span>.</li>
+        <li><strong>Walk around.</strong> Try the keys along the bottom: <span class="path">BRB</span> puts your BRB card up and <span class="path">TO CAMERA</span> brings you back, <span class="path">SCENES</span> has the rest. The pill at the top says what viewers would see and hear.</li>
+        <li><strong>End it.</strong> Hold <span class="path">END</span> for 2 seconds. The recap shows how long it ran and how many times the connection dropped. Tap <span class="path">Check it in Twitch Inspector</span> to see it on Twitch's side.</li>
       </ol>
       <p>After a clean test, Fullbars offers <span class="path">Go live now</span>. That's it: without a server, Fullbars streams straight to Twitch over your phone's connection.</p>
     </div>
@@ -170,14 +170,14 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
         <li>On your computer, ask the server for a pairing code:
           <div class="cmd" data-what="show the pairing code"><div class="cmd-h"><span class="label">On your computer</span></div><pre>ssh -t root@<span class="ph">YOUR_SERVER_ADDRESS</span> docker exec -it fullbars-brb brb pair</pre></div>
           A QR code appears in the terminal.</li>
-        <li>In Fullbars, open <span class="path">Settings › Combine connections</span>, turn on <span class="path">Combine connections</span>, tap <span class="path">Scan pairing code</span>, and scan it.</li>
+        <li>In Fullbars, open <span class="path">Settings › Combine connections</span>, turn on <span class="path">Use Wi‑Fi and mobile data together</span>, tap <span class="path">Scan pairing code</span>, and scan it.</li>
       </ol>
       <p class="note"><strong>Treat the code like a password:</strong> whoever has it can stream through your server. If it leaks, run <code>docker exec -it fullbars-brb brb pair -reset</code> on the server and pair again.</p>
       <p>Done. Do another Test stream: the live screen now shows each connection along the bottom, with its own Mb/s. Fullbars sends your Twitch details to the server each time you go live, so you never put a stream key on the server.</p>
 
       <h3><span class="fig">4f</span>If something's wrong</h3>
       <dl class="lic" style="margin-top:8px">
-        <div><dt>"Can't reach your BRB server"</dt><dd>Is it running? Log in and run <code>docker ps</code>. Are UDP and TCP 5000 open in every firewall your provider has?</dd></div>
+        <div><dt>"Can't reach your server"</dt><dd>Is it running? Log in and run <code>docker ps</code>. Are UDP and TCP 5000 open in every firewall your provider has?</dd></div>
         <div><dt>Live, but only one connection shows</dt><dd>Mobile data is off, or Wi‑Fi isn't connected. Combine uses whatever is there.</dd></div>
         <div><dt>"This BRB server doesn't know this phone any more"</dt><dd>The server was re-paired or rebuilt. Pair again (4e).</dd></div>
         <div><dt>Viewers see nothing</dt><dd>Run <code>docker logs fullbars-brb</code> on the server. "Twitch refused the stream" means Twitch rejected the key: check you're signed in to the right channel in Fullbars.</dd></div>
@@ -206,8 +206,8 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
       <p>Any spare Android 12+ phone with its own SIM and data. It goes in your pocket or bag, and adds its mobile data to your stream.</p>
       <ol>
         <li>Install Fullbars on the spare phone (step 1).</li>
-        <li>On your <strong>streaming phone</strong>: <span class="path">Settings › Helper phones</span>, turn on <span class="path">Accept helper phones</span>, leave <span class="path">Make a hotspot for helpers</span> on, and allow Nearby devices. Keep Bluetooth on.</li>
-        <li>On the <strong>helper phone</strong>: <span class="path">Settings › Helper phones</span>, tap <span class="path">Scan the streaming phone's code</span>, and scan the code your streaming phone shows. Allow Nearby devices, and keep its Bluetooth, Wi‑Fi and mobile data on (the Wi‑Fi doesn't need to be connected to anything). It says it's waiting for you to go live.</li>
+        <li>On your <strong>streaming phone</strong>: <span class="path">Settings › Helper phones</span>, turn on <span class="path">Accept helper phones</span>, leave <span class="path">Make a hotspot for helpers</span> on, and allow Nearby devices. Keep Bluetooth on. Tap <span class="path">Add a helper phone</span> to show its code.</li>
+        <li>On the <strong>helper phone</strong>: <span class="path">Settings › Helper phones › Use this phone as a helper</span>, tap <span class="path">Scan the streaming phone's code</span>, and scan the code your streaming phone shows. Allow Nearby devices, and keep its Bluetooth, Wi‑Fi and mobile data on (the Wi‑Fi doesn't need to be connected to anything). It says it's waiting for you to go live.</li>
         <li>Go live. Within about 15 seconds the helper finds your streaming phone's hotspot and asks to connect: tap <span class="path">Connect</span>. On Android 16 it may ask again each stream.</li>
       </ol>
       <p class="note">Tested with a Pixel 5 helping a OnePlus 12, including the Pixel carrying the whole stream on its own. Helpers use Moblin's Moblink protocol, so Moblin's helpers should work too, but that hasn't been tested yet.</p>
