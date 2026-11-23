@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Set up Fullbars · Fullbars</title>
+<title>Setup guide · Fullbars</title>
 <meta name="description" content="Set up Fullbars step by step: install the app, sign in with Twitch, do a Test stream, then set up your own BRB server and add helper phones.">
 <meta name="theme-color" content="#0D0D0C">
 <link rel="canonical" href="https://fullbars.app/setup/">
@@ -12,8 +12,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fullbars.app/setup/">
-<meta property="og:title" content="Set up Fullbars">
-<meta property="og:description" content="From install to a dead-zone-proof stream, with your own BRB server.">
+<meta property="og:title" content="Fullbars setup guide">
+<meta property="og:description" content="Install the app, do a test stream, then optionally rent a BRB server and add helper phones.">
 <meta property="og:image" content="https://fullbars.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fonts/archivo_c_800.woff2" as="font" type="font/woff2" crossorigin>
@@ -43,29 +43,23 @@
 <div class="wrap">
 
   <div class="page-head">
-    <p class="label">Setup guide · version 0.8.0</p>
     <h1 class="display">Setup guide</h1>
-    <p class="lede">Steps 1 to 3 get you live on Twitch from your phone. Steps 4 to 6 are optional: they keep you live in dead zones, add more connections, and send your stream to Kick or YouTube too. Each step says what it costs, how long it takes, and why it's worth it.</p>
+    <p class="lede">Steps 1 to 3 get you live on Twitch from your phone. Steps 4 to 6 are optional: the BRB server for dead zones and extra connections, then Kick or YouTube. Written for version 0.8.0.</p>
     <ol class="toc">
       <li><a href="#install"><span class="n">1</span><span class="w">Install the app</span><span class="t">2 min · free</span></a></li>
       <li><a href="#twitch"><span class="n">2</span><span class="w">Sign in with Twitch</span><span class="t">1 min · free</span></a></li>
       <li><a href="#test"><span class="n">3</span><span class="w">Do a Test stream</span><span class="t">5 min · your data</span></a></li>
-      <li><a href="#server"><span class="n">4</span><span class="w">Set up your BRB server <span class="tag dashed">Optional</span></span><span class="t">30–60 min · <span class="nw">$4–10</span>/month</span></a></li>
-      <li><a href="#more"><span class="n">5</span><span class="w">Add helper phones and a hotspot <span class="tag dashed">Optional</span></span><span class="t">10 min</span></a></li>
-      <li><a href="#also"><span class="n">6</span><span class="w">Also stream to Kick or YouTube <span class="tag dashed">Optional</span></span><span class="t">5 min · free</span></a></li>
+      <li><a href="#server"><span class="n">4</span><span class="w">Set up your BRB server (optional)</span><span class="t">30–60 min · <span class="nw">$4–10</span>/month</span></a></li>
+      <li><a href="#more"><span class="n">5</span><span class="w">Add helper phones and a hotspot (optional)</span><span class="t">10 min</span></a></li>
+      <li><a href="#also"><span class="n">6</span><span class="w">Also stream to Kick or YouTube (optional)</span><span class="t">5 min · free</span></a></li>
     </ol>
   </div>
 
   <!-- 1 -->
   <section class="step" id="install" aria-labelledby="s1">
-    <div class="step-head"><span class="num" aria-hidden="true">1</span><h2 class="title" id="s1"><span class="sr">Step 1: </span>Install the app</h2></div>
-    <dl class="meta">
-      <div><dt class="label">Time</dt><dd>About 2 minutes</dd></div>
-      <div><dt class="label">Cost</dt><dd>Free</dd></div>
-      <div><dt class="label">You need</dt><dd>An Android 12+ phone</dd></div>
-    </dl>
-    <p class="why"><span class="label">Why</span>Fullbars isn't on Google Play yet, so you install the test build from GitHub yourself.</p>
+    <h2 class="title" id="s1">Step 1: Install the app</h2>
     <div class="body">
+      <p>Fullbars isn't on Google Play yet, so you install the test build from GitHub yourself. You need a phone with Android 12 or newer.</p>
       <ol>
         <li>On your phone, open the <a href="https://github.com/AnnabelleChimpton/fullbars/releases">latest release on GitHub</a> and download the <code>.apk</code> file under <span class="path">Assets</span>.</li>
         <li>Open the downloaded file. Android asks whether your browser may install apps: allow it, then tap <span class="path">Install</span>.</li>
@@ -77,18 +71,11 @@
 
   <!-- 2 -->
   <section class="step" id="twitch" aria-labelledby="s2">
-    <div class="step-head"><span class="num" aria-hidden="true">2</span><h2 class="title" id="s2"><span class="sr">Step 2: </span>Sign in with Twitch</h2></div>
-    <dl class="meta">
-      <div><dt class="label">Time</dt><dd>About 1 minute</dd></div>
-      <div><dt class="label">Cost</dt><dd>Free</dd></div>
-      <div><dt class="label">You need</dt><dd>Your Twitch login</dd></div>
-    </dl>
-    <p class="why"><span class="label">Why</span>Sign in once and Fullbars gets your stream key from Twitch. You never copy or paste it, and the BRB server gets it from the app later.</p>
+    <h2 class="title" id="s2">Step 2: Sign in with Twitch</h2>
     <div class="body">
+      <p>Sign in once and Fullbars gets your stream key from Twitch. You never copy or paste it, and the BRB server gets it from the app later.</p>
       <ol>
-        <li>Open Fullbars and tap <span class="path">Continue with Twitch</span>.
-          <figure class="mock"><span class="twitch-btn" aria-hidden="true">Continue with Twitch</span><figcaption>The button on Fullbars' first screen.</figcaption></figure>
-        </li>
+        <li>Open Fullbars and tap <span class="path">Continue with Twitch</span> on the first screen.</li>
         <li>Fullbars shows a short code and opens Twitch. Check the code matches, and approve it.</li>
         <li>Back in Fullbars, the Twitch row shows your channel name, and the pre-flight checklist fills in.</li>
       </ol>
@@ -98,14 +85,9 @@
 
   <!-- 3 -->
   <section class="step" id="test" aria-labelledby="s3">
-    <div class="step-head"><span class="num" aria-hidden="true">3</span><h2 class="title" id="s3"><span class="sr">Step 3: </span>Do a Test stream</h2></div>
-    <dl class="meta">
-      <div><dt class="label">Time</dt><dd>About 5 minutes</dd></div>
-      <div><dt class="label">Cost</dt><dd>Your mobile data</dd></div>
-      <div><dt class="label">You need</dt><dd>Steps 1 and 2</dd></div>
-    </dl>
-    <p class="why"><span class="label">Why</span>A test goes all the way to Twitch, but nobody can watch a test on Twitch, not even you. It's where you find out your mic is too loud, not on stream.</p>
+    <h2 class="title" id="s3">Step 3: Do a Test stream</h2>
     <div class="body">
+      <p>A test goes all the way to Twitch, but nobody can watch it, so it's a safe place to find out your mic is too loud. It uses your mobile data.</p>
       <ol>
         <li><strong>Check your mic.</strong> Open <span class="path">Settings › Microphone</span> and talk the way you will on stream. Your voice should reach the marked range, and only touch amber when you shout. If you sound too loud or harsh, turn off <span class="path">Phone's auto level</span> and set the level with the fader.</li>
         <li><strong>Start the test.</strong> On Home, <span class="path">TEST private</span> is picked by default. Tap <span class="path">Start test</span>. You see a preview first, with the mic meter and your connections: nothing is sent yet. Choose whether viewers start on your camera or your Starting soon card, then tap <span class="path">START TEST</span>.</li>
@@ -118,17 +100,12 @@
 
   <!-- 4 -->
   <section class="step" id="server" aria-labelledby="s4">
-    <div class="step-head"><span class="num" aria-hidden="true">4</span><h2 class="title" id="s4"><span class="sr">Step 4: </span>Set up your BRB server</h2><span class="opt"><span class="tag dashed" style="margin:0">Optional</span></span></div>
-    <dl class="meta">
-      <div><dt class="label">Time</dt><dd>30–60 minutes, once</dd></div>
-      <div><dt class="label">Cost</dt><dd>About <span class="nw">$4–10</span> a month, or Oracle Cloud's free tier</dd></div>
-      <div><dt class="label">You need</dt><dd>A Mac, a Linux PC, or Windows with WSL</dd></div>
-    </dl>
-    <p class="why"><span class="label">Why</span>The BRB server lets your phone use mobile data, Wi‑Fi and helper phones at once, and keeps Twitch live with a Signal lost card when all of them drop. When you're back, your picture returns within seconds. You set it up once and then forget about it.</p>
+    <h2 class="title" id="s4">Step 4: Set up your BRB server (optional)</h2>
     <div class="body">
+      <p>The BRB server lets your phone use mobile data, Wi‑Fi and helper phones at once, and keeps Twitch on your Signal lost card when all of them drop. You set it up once, and after that you only touch it to update. It costs about <span class="nw">$4–10</span> a month, or nothing on Oracle Cloud's free tier, and you'll need a Mac, a Linux PC, or Windows with WSL to type the commands.</p>
       <p>A server here means a small computer you rent by the month, somewhere with good internet. You'll type a few commands on your own computer; you can copy every one of them from this page. Wherever you see <code>YOUR_SERVER_ADDRESS</code>, use your server's IP address, such as <code>203.0.113.7</code>.</p>
 
-      <h3><span class="fig">4a</span>Rent a small server</h3>
+      <h3>4a. Rent a small server</h3>
       <ol>
         <li>Pick any VPS provider (Hetzner, DigitalOcean, Vultr, OVH and Linode all work) and create the smallest server with <strong>Ubuntu 24.04</strong>. 1 GB of memory is plenty: the BRB server is capped at 256 MB, uses far less, and needs almost no CPU, because it never re-encodes your video. Pick a location near where you stream.</li>
         <li>When it asks how to log in, add an SSH key if you have one, or set a root password and keep it somewhere safe.</li>
@@ -136,7 +113,7 @@
       </ol>
       <p class="note">Oracle Cloud's free tier works too, but it's fiddlier: it has two firewalls to open (see 4b).</p>
 
-      <h3><span class="fig">4b</span>Open two ports</h3>
+      <h3>4b. Open two ports</h3>
       <p>If your provider has a firewall for the server, allow these. If it doesn't have one, skip this.</p>
       <table class="ports">
         <thead><tr><th scope="col">Port</th><th scope="col">What for</th></tr></thead>
@@ -149,14 +126,14 @@
       </table>
       <p class="note">On Oracle Cloud, allow UDP and TCP 5000 on the server itself <em>and</em> in the subnet's security list. If either is missing, the app can't reach the server.</p>
 
-      <h3><span class="fig">4c</span>Install Docker on the server</h3>
+      <h3>4c. Install Docker on the server</h3>
       <p>Open Terminal (on Windows, the Ubuntu app from WSL) and log in to your server. The first time, type <code>yes</code> when it asks whether to trust the server.</p>
       <div class="cmd" data-what="log in to the server"><div class="cmd-h"><span class="label">On your computer</span></div><pre>ssh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div>
       <p>Then install Docker with its official script, and log out:</p>
       <div class="cmd" data-what="install Docker"><div class="cmd-h"><span class="label">On the server, after you log in</span></div><pre>curl -fsSL https://get.docker.com | sh
 exit</pre></div>
 
-      <h3><span class="fig">4d</span>Install the BRB server</h3>
+      <h3>4d. Install the BRB server</h3>
       <p>Back on your own computer, get Fullbars' code and run its install script. It builds and starts one container, <code>fullbars-brb</code>, and only touches <code>/opt/fullbars-brb</code> on the server. The first build takes a few minutes.</p>
       <div class="cmd" data-what="download Fullbars and install the BRB server"><div class="cmd-h"><span class="label">On your computer</span></div><pre>git clone https://github.com/AnnabelleChimpton/fullbars.git
 cd fullbars
@@ -164,7 +141,7 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
       <p class="note">No <code>git</code>? On a Mac, running <code>git</code> once offers to install it. You can also download the code as a ZIP from GitHub and run <code>server/brb/deploy.sh</code> from inside it.</p>
       <p>When it finishes it lists the ports to open, and the server <strong>restarts on its own</strong> after a reboot or a crash.</p>
 
-      <h3><span class="fig">4e</span>Pair the app</h3>
+      <h3>4e. Pair the app</h3>
       <ol>
         <li>Make sure you've signed in to Twitch in Fullbars (step 2), or added a stream key. The app sends your Twitch details to the server each time you go live.</li>
         <li>On your computer, ask the server for a pairing code:
@@ -175,7 +152,7 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
       <p class="note"><strong>Treat the code like a password:</strong> whoever has it can stream through your server. If it leaks, run <code>docker exec -it fullbars-brb brb pair -reset</code> on the server and pair again.</p>
       <p>Done. Do another Test stream: the live screen now shows each connection along the bottom, with its own Mb/s. Fullbars sends your Twitch details to the server each time you go live, so you never put a stream key on the server.</p>
 
-      <h3><span class="fig">4f</span>If something's wrong</h3>
+      <h3>4f. If something's wrong</h3>
       <dl class="lic" style="margin-top:8px">
         <div><dt>"Can't reach your server"</dt><dd>Is it running? Log in and run <code>docker ps</code>. Are UDP and TCP 5000 open in every firewall your provider has?</dd></div>
         <div><dt>Live, but only one connection shows</dt><dd>Mobile data is off, or Wi‑Fi isn't connected. Combine uses whatever is there.</dd></div>
@@ -188,21 +165,16 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
 
   <!-- 5 -->
   <section class="step" id="more" aria-labelledby="s5">
-    <div class="step-head"><span class="num" aria-hidden="true">5</span><h2 class="title" id="s5"><span class="sr">Step 5: </span>Add helper phones and a hotspot</h2><span class="opt"><span class="tag dashed" style="margin:0">Optional</span></span></div>
-    <dl class="meta">
-      <div><dt class="label">Time</dt><dd>About 10 minutes</dd></div>
-      <div><dt class="label">Cost</dt><dd>Their data plans</dd></div>
-      <div><dt class="label">You need</dt><dd>Step 4</dd></div>
-    </dl>
-    <p class="why"><span class="label">Why</span>Every extra connection is another way through. Pick ones on a different carrier from your phone's: where one is weak, the other often isn't.</p>
+    <h2 class="title" id="s5">Step 5: Add helper phones and a hotspot (optional)</h2>
     <div class="body">
-      <h3><span class="fig">5a</span>A MiFi or other Wi‑Fi hotspot</h3>
+      <p>This needs the BRB server from step 4. More connections means more chances that one of them is working. A different carrier from your phone's helps most, since they're weak in different places.</p>
+      <h3>5a. A MiFi or other Wi‑Fi hotspot</h3>
       <ol>
         <li>Connect your streaming phone to the hotspot's Wi‑Fi, like any network. Leave mobile data on.</li>
         <li>With <span class="path">Combine connections</span> on, Fullbars uses the hotspot and your mobile data together. Each shows up as its own column on the live screen.</li>
       </ol>
 
-      <h3><span class="fig">5b</span>A helper phone</h3>
+      <h3>5b. A helper phone</h3>
       <p>Any spare Android 12+ phone with its own SIM and data. It goes in your pocket or bag, and adds its mobile data to your stream.</p>
       <ol>
         <li>Install Fullbars on the spare phone (step 1).</li>
@@ -216,14 +188,9 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
 
   <!-- 6 -->
   <section class="step" id="also" aria-labelledby="s6">
-    <div class="step-head"><span class="num" aria-hidden="true">6</span><h2 class="title" id="s6"><span class="sr">Step 6: </span>Also stream to Kick or YouTube</h2><span class="opt"><span class="tag dashed" style="margin:0">Optional</span></span></div>
-    <dl class="meta">
-      <div><dt class="label">Time</dt><dd>About 5 minutes</dd></div>
-      <div><dt class="label">Cost</dt><dd>Free</dd></div>
-      <div><dt class="label">You need</dt><dd>Step 4</dd></div>
-    </dl>
-    <p class="why"><span class="label">Why</span>Reach viewers on Kick or YouTube without sending your stream twice. Your phone uploads it once, and your BRB server sends the copies.</p>
+    <h2 class="title" id="s6">Step 6: Also stream to Kick or YouTube (optional)</h2>
     <div class="body">
+      <p>This needs the BRB server from step 4. Your phone uploads once and your BRB server sends the copies, so it costs your phone no extra data.</p>
       <ol>
         <li>In Fullbars, open <span class="path">Settings › Also stream to</span>.</li>
         <li><strong>Kick:</strong> turn on <span class="path">Stream to Kick</span>. In Kick's creator dashboard, under <span class="path">Settings › Stream</span>, copy the Stream URL and the Stream key into Fullbars.</li>
@@ -237,8 +204,7 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
 
   <section class="step" aria-labelledby="next">
     <h2 class="title" id="next">If you get stuck</h2>
-    <p class="help" style="max-width:40em">Questions? Read the <a href="/#faq">FAQ</a>, or <a href="https://github.com/AnnabelleChimpton/fullbars/issues">open an issue on GitHub</a>. The full server guide, including My OBS at home and changing ports, is in the <a href="https://github.com/AnnabelleChimpton/fullbars/blob/main/docs/guides/BRB-SERVER.md">repository</a>.</p>
-    <div class="ruler" data-step="0" aria-hidden="true" style="margin-top:40px"><span class="cursor"></span></div>
+    <p class="body">Read the <a href="/#faq">FAQ</a>, or <a href="https://github.com/AnnabelleChimpton/fullbars/issues">open an issue on GitHub</a> with your phone model and what the app said. The full server guide, including My OBS at home and changing ports, is in the <a href="https://github.com/AnnabelleChimpton/fullbars/blob/main/docs/guides/BRB-SERVER.md">repository</a>.</p>
   </section>
 
 </div>
