@@ -1,20 +1,9 @@
-// Fullbars site: the dead-zone simulation, the ruler cursor and the copy keys. No tracking, no storage.
-// Motion follows FbMotion: values change in steps (Tick), never tween. With reduce motion, nothing moves on its own.
+// The dead-zone demo and the copy buttons on the setup page.
 (function () {
   "use strict";
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Ruler cursor: 4 positions, like the cursor on the scene cards.
-  if (!reduced) {
-    var rulers = document.querySelectorAll(".ruler");
-    var step = 0;
-    if (rulers.length) setInterval(function () {
-      step = (step + 1) % 4;
-      for (var i = 0; i < rulers.length; i++) rulers[i].setAttribute("data-step", String(step));
-    }, 500);
-  }
-
-  // Copy keys on command blocks.
+  // Copy buttons on command blocks.
   var blocks = document.querySelectorAll(".cmd");
   for (var b = 0; b < blocks.length; b++) (function (block) {
     if (!navigator.clipboard) return;

@@ -153,13 +153,13 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
       <p>Done. Do another Test stream: the live screen now shows each connection along the bottom, with its own Mb/s. Fullbars sends your Twitch details to the server each time you go live, so you never put a stream key on the server.</p>
 
       <h3>4f. If something's wrong</h3>
-      <dl class="lic" style="margin-top:8px">
+      <dl class="lic">
         <div><dt>"Can't reach your server"</dt><dd>Is it running? Log in and run <code>docker ps</code>. Are UDP and TCP 5000 open in every firewall your provider has?</dd></div>
         <div><dt>Live, but only one connection shows</dt><dd>Mobile data is off, or Wi‑Fi isn't connected. Combine uses whatever is there.</dd></div>
         <div><dt>"This BRB server doesn't know this phone any more"</dt><dd>The server was re-paired or rebuilt. Pair again (4e).</dd></div>
         <div><dt>Viewers see nothing</dt><dd>Run <code>docker logs fullbars-brb</code> on the server. "Twitch refused the stream" means Twitch rejected the key: check you're signed in to the right channel in Fullbars.</dd></div>
       </dl>
-      <p class="note" style="margin-top:16px">To update the server later, run <code>git pull</code> in the <code>fullbars</code> folder, then <code>server/brb/deploy.sh</code> again. Your pairing and your cards are kept.</p>
+      <p class="note">To update the server later, run <code>git pull</code> in the <code>fullbars</code> folder, then <code>server/brb/deploy.sh</code> again. Your pairing and your cards are kept.</p>
     </div>
   </section>
 
@@ -218,8 +218,8 @@ server/brb/deploy.sh root@<span class="ph">YOUR_SERVER_ADDRESS</span></pre></div
       <a href="https://github.com/AnnabelleChimpton/fullbars">Source</a>
       <a href="https://github.com/AnnabelleChimpton/fullbars/issues">Report a problem</a>
     </div>
-    <p style="margin:0">Twitch is a trademark of Twitch Interactive, Inc. DJI and Osmo Pocket are trademarks of SZ DJI Technology Co., Ltd. Fullbars isn't affiliated with either.</p>
-    <p style="margin:0">This site has no cookies, tracking or analytics.</p>
+    <p>Twitch is a trademark of Twitch Interactive, Inc. DJI and Osmo Pocket are trademarks of SZ DJI Technology Co., Ltd. Fullbars isn't affiliated with either.</p>
+    <p>This site has no cookies, tracking or analytics.</p>
   </div>
 </footer>
 </body>

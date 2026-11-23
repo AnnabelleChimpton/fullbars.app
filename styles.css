@@ -1,5 +1,4 @@
-/* Fullbars site. Tokens from docs/design/DESIGN-SPEC.md §1 (app dark). One theme: the app's default, and the Live
-   screen is always dark. No gradients, glows or blur. Radii: 2px (rS), 6px (rM), full only for the health pill. */
+/* fullbars.app */
 
 @font-face { font-family: "Archivo"; src: url("/fonts/archivo_sc_400.woff2") format("woff2"); font-weight: 400; font-stretch: 87.5%; font-display: swap; }
 @font-face { font-family: "Archivo"; src: url("/fonts/archivo_sc_500.woff2") format("woff2"); font-weight: 500; font-stretch: 87.5%; font-display: swap; }
@@ -15,16 +14,12 @@
   --bg: #0D0D0C; --s1: #151412; --s2: #1C1B18; --s3: #24221F; --s4: #2D2B27;
   --rule: #2E2C28; --rule-strong: #4A4741; --tick: #8A867E;
   --text: #F4F1EA; --text2: #A7A196;
-  /* Health: only where they mean health */
+  /* Health colours */
   --great: #34E07A; --weak: #FFC233; --cam-lost: #FF8A3D; --reconnecting: #FF6B6B;
-  /* Twitch purple: Twitch-specific elements only */
-  --twitch: #9146FF; --on-twitch: #FFFFFF;
   --rS: 2px; --rM: 6px;
   --gutter: 16px; --max: 1120px;
   --sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  /* Motion tokens (FbMotion) */
-  --tick-ms: 120ms; --enter: 280ms cubic-bezier(0.2, 0, 0, 1); --exit: 180ms cubic-bezier(0.4, 0, 1, 1);
   color-scheme: dark;
 }
 @media (min-width: 720px) { :root { --gutter: 32px; } }
@@ -51,13 +46,12 @@ code, kbd { font-family: var(--mono); font-weight: 500; font-size: 0.88em; }
 .skip { position: absolute; left: 8px; top: -60px; background: var(--text); color: var(--bg); padding: 8px 12px; border-radius: var(--rM); z-index: 10; font-weight: 600; }
 .skip:focus { top: 8px; }
 
-/* Type roles (FbType, scaled for the web) */
+/* Type */
 .display { font-stretch: 62.5%; font-weight: 800; font-size: clamp(40px, 8vw, 80px); line-height: 0.96; letter-spacing: -0.01em; }
 .title { font-stretch: 75%; font-weight: 800; font-size: clamp(26px, 3.6vw, 34px); line-height: 1.08; }
 .label { font-stretch: 75%; font-weight: 700; font-size: 12px; line-height: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text2); }
 .lede { font-size: clamp(18px, 2.1vw, 21px); line-height: 1.45; color: var(--text); max-width: 34em; }
 .help { color: var(--text2); font-size: 15px; line-height: 1.45; }
-.muted { color: var(--text2); }
 
 /* Top bar */
 .bar { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--rule); }
@@ -74,14 +68,13 @@ section { padding: 72px 0; }
 section h2.title { margin-bottom: 20px; max-width: 24em; }
 @media (max-width: 719px) { section { padding: 56px 0; } }
 
-/* Buttons (FbButton) */
+/* Buttons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; padding: 0 22px; border-radius: var(--rM);
   font-family: var(--sans); font-stretch: 75%; font-weight: 800; font-size: 22px; line-height: 1; text-decoration: none; cursor: pointer; border: 0; }
 .btn.primary { background: var(--text); color: var(--bg); }
 .btn.primary:active { background: #DEDAD1; }
 .btn.secondary { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px var(--tick); }
 .btn.secondary:active { background: var(--s3); }
-.btn .tag { font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; border: 1px dashed currentColor; border-radius: var(--rS); padding: 3px 6px; }
 .textlink { font-weight: 600; min-height: 48px; display: inline-flex; align-items: center; }
 
 /* Hero */
@@ -98,26 +91,18 @@ section h2.title { margin-bottom: 20px; max-width: 24em; }
   .hero .wrap { grid-template-columns: minmax(0, 1fr) 320px; align-items: center; gap: 56px; }
 }
 
-/* The ruler (scene cards): a baseline, minor ticks every 8px, major every 40px, a cursor stepping 4 positions */
-.ruler { position: relative; height: 18px; margin-top: 8px; color: var(--tick); }
-.ruler::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; }
-.ruler::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12'%3E%3Cpath fill='%238A867E' d='M0 0h1v12H0zM8 6h1v6H8zM16 6h1v6h-1zM24 6h1v6h-1zM32 6h1v6h-1z'/%3E%3C/svg%3E") repeat-x 0 100%; }
-.ruler .cursor { position: absolute; bottom: 0; width: 6px; height: 18px; background: var(--text); left: 12.5%; transform: translateX(-50%); }
-.ruler[data-step="1"] .cursor { left: 37.5%; }
-.ruler[data-step="2"] .cursor { left: 62.5%; }
-.ruler[data-step="3"] .cursor { left: 87.5%; }
-
-/* Route: phone → links → BRB server → Twitch */
+/* Dead-zone demo */
 .route-intro { display: grid; gap: 16px; margin-bottom: 32px; }
 .route-intro h2.title { margin: 0; }
+.route-intro p { margin: 0; }
+.route-intro strong { color: var(--text); }
 .after-plate { max-width: 44em; margin: 32px 0 0; color: var(--text2); }
 @media (min-width: 880px) { .route-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: end; } }
 .plate { background: var(--s1); border-radius: var(--rS); padding: 20px; }
 @media (min-width: 720px) { .plate { padding: 28px; } }
 .plate-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; margin-bottom: 24px; }
 
-/* Health pill (the one place green/amber/coral show up, because it means health) */
+/* Health pill */
 .pill { display: inline-flex; align-items: center; gap: 10px; min-height: 40px; padding: 8px 16px 8px 12px; border-radius: 999px; background: var(--bg);
   box-shadow: inset 0 0 0 1.5px var(--bg); font-stretch: 75%; font-weight: 700; font-size: 18px; line-height: 1.2; transition: none; }
 .pill .meter { color: var(--great); }
@@ -152,6 +137,7 @@ section h2.title { margin-bottom: 20px; max-width: 24em; }
 .lane.out .val { width: auto; }
 .stub { position: relative; height: 20px; }
 .stub::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; border-left: 1.5px solid var(--tick); }
+.node.twitch .viewers .sub { margin: 0; }
 .node.twitch .viewers { margin-top: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .card-thumb { width: 160px; height: 90px; flex: none; border-radius: var(--rS); background: var(--bg); box-shadow: inset 0 0 0 1px var(--rule); position: relative; overflow: hidden; }
 .card-thumb .cam { position: absolute; inset: 0; background: var(--s4); }
@@ -181,7 +167,7 @@ section h2.title { margin-bottom: 20px; max-width: 24em; }
   .lane.out { grid-template-columns: auto; justify-content: center; }
 }
 
-/* Compare table: a table from 720px, stacked rows below */
+/* Comparison table, stacked below 720px */
 table.cmp { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.4; }
 .cmp th, .cmp td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--rule); }
 .cmp thead th { font-weight: 600; font-size: 14px; color: var(--text2); border-bottom-color: var(--rule-strong); }
@@ -200,7 +186,7 @@ table.cmp { width: 100%; border-collapse: collapse; font-size: 16px; line-height
   .cmp tbody th { order: -2; }
 }
 
-/* Feature rows: label left, text right, a hairline between (ValueRow, no containers) */
+/* Feature rows */
 .rows { border-top: 1px solid var(--rule); }
 .row { display: grid; gap: 6px 32px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
 .row h4 { margin: 0; font-stretch: 87.5%; font-weight: 600; font-size: 19px; line-height: 1.3; }
@@ -226,9 +212,11 @@ h3.group:first-of-type { margin-top: 8px; }
 .faq .a { padding: 0 0 20px; color: var(--text2); max-width: 44em; }
 .faq .a p:last-child { margin: 0; }
 
-/* Licences + footer */
+/* Troubleshooting list and footer */
 .lic { display: grid; gap: 0; border-top: 1px solid var(--rule); }
 .lic div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.body .lic { margin-top: 8px; }
+.lic + .note { margin-top: 16px; }
 .lic dt { font-weight: 600; }
 .lic dd { margin: 0; color: var(--text2); }
 @media (min-width: 720px) { .lic div { grid-template-columns: 320px minmax(0, 1fr); gap: 32px; } }
@@ -238,6 +226,10 @@ footer p { margin: 0; max-width: 60em; }
 footer .tm { font-size: 13px; }
 footer .links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
 footer .links a { color: var(--text); min-height: 44px; display: inline-flex; align-items: center; }
+
+/* 404 */
+.notfound { padding-top: 72px; padding-bottom: 96px; }
+.notfound h1 { margin: 0 0 20px; }
 
 /* Setup page */
 .page-head { padding: 56px 0 24px; }
@@ -269,8 +261,7 @@ footer .links a { color: var(--text); min-height: 44px; display: inline-flex; al
 .ports th { font-stretch: 75%; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text2); }
 .ports td:first-child { font-family: var(--mono); font-weight: 500; white-space: nowrap; }
 
-/* Motion: Tick swaps are instant two-step changes done in JS; only Enter is a transition, and reduce-motion cuts it */
-.enter { transition: opacity var(--enter), transform var(--enter); }
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
