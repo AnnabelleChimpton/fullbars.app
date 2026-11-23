@@ -51,7 +51,7 @@
         <a class="btn primary" href="https://github.com/AnnabelleChimpton/fullbars/releases">Download the test build</a>
         <a class="textlink" href="/setup/">How to set it up</a>
       </div>
-      <p class="fine">Version 0.7.0 · Android 12 or newer · a test build from GitHub, not on Google Play yet.</p>
+      <p class="fine">Version 0.8.0 · Android 12 or newer · a test build from GitHub, not on Google Play yet.</p>
       <div class="ruler" data-step="0" aria-hidden="true"><span class="cursor"></span></div>
     </div>
     <figure class="shot reg" style="margin:0">
@@ -163,12 +163,13 @@
       <div class="row"><h3>Helper phones</h3><div><p>A spare phone in your pocket adds its mobile data. While you're live it joins your streaming phone's hotspot by itself, so there's nothing to type.</p><p class="tagline help">Helpers speak Moblin's Moblink protocol, so Moblin's helpers should work too. So far it's tested with Fullbars on both phones.</p></div></div>
       <div class="row"><h3>DJI Pocket 3 <span class="tag dashed">Labs</span></h3><div><p>Fullbars starts the Pocket's stream over Bluetooth and takes it in over Wi‑Fi, so the Pocket works as a wireless camera on Android.</p><p class="tagline help">Unofficial: DJI doesn't support it, so the app asks you to confirm when you choose it in Settings › Camera. Other RTMP cameras work too.</p></div></div>
       <div class="row"><h3>Scene cards</h3><div><p>Starting soon, BRB, Privacy and Ending, one tap away, up to four scenes of your own, plus automatic Signal lost, Weak signal and Camera lost cards. Your phone draws them, so they look the same with or without the server.</p><p class="tagline help">Make each one yours: your words in one of eight fonts, any colour, a picture, a still or GIF background, a layout and an accent. Add a countdown, a time-away counter, chat on the card, music under it, or a web page instead of the card.</p></div></div>
-      <div class="row"><h3>Alerts</h3><p>Follows, subs, gift subs, bits, raids and tips, drawn on stream with sound. Pick which ones show, where, how big and for how long, and give each kind your own words, picture, colours and sound.</p></div>
+      <div class="row"><h3>Alerts</h3><p>Follows, subs, gift subs, bits, raids and tips, drawn on stream with sound. Pick which ones show, where, how big and for how long, and give each kind your own words, picture, colours and sound. You feel each one land, and see who sent it.</p></div>
+      <div class="row"><h3>Viewer TTS</h3><p>A "Make me talk" channel points reward reads viewers' messages out on stream, and alerts can be said out loud too: "Thank you Sam for the 500 bits!" Spoken on your phone in one bright, dramatic voice, filtered for slurs and your own blocked words, and mods can <code>!skip</code>.</p></div>
       <div class="row"><h3>Live captions</h3><p>What viewers hear you say, recognised on your phone and written on the stream. Nothing is sent anywhere, and they stop while you're muted. Android 13 or newer.</p></div>
       <div class="row"><h3>Your mic, your level</h3><p>A live level meter, a sound check you can play back, a fader up to +30 dB, a limiter, and a switch for the phone's own auto level, which on some phones blows your voice out.</p></div>
       <div class="row"><h3>Chat and overlays</h3><p>Twitch chat with emotes, on your screen and on stream. Chat read aloud into your earbuds. Text, image, or StreamElements and Streamlabs web overlays.</p></div>
       <div class="row"><h3>Also stream to</h3><div><p>Your BRB server can send the same stream to Kick, YouTube or any RTMP server too, up to three at once. Your phone still uploads it only once.</p><p class="tagline help">Chat, alerts and mod commands stay on Twitch. Test streams never go anywhere else.</p></div></div>
-      <div class="row"><h3>Your mods</h3><p>Mod chat commands, and a web remote your mods can open to switch scenes for you, your own scenes included.</p></div>
+      <div class="row"><h3>Your mods</h3><p>Mod chat commands, and a web remote your mods can open to switch scenes for you, your own scenes included, or skip a TTS message.</p></div>
       <div class="row"><h3>My OBS</h3><p>Streaming through OBS at home? The server can feed your OBS instead of Twitch, and NOALBS can switch scenes from its stats.</p></div>
     </div>
 
@@ -180,31 +181,26 @@
 
 <section id="new" aria-labelledby="new-title">
   <div class="wrap">
-    <div class="sh"><span class="label">New in 0.7</span><span class="stamp">0.7.0 · Nov 2026</span></div>
-    <div class="release">
+    <div class="sh"><span class="label">New in 0.8</span><span class="stamp">0.8.0 · Nov 2026</span></div>
+    <div class="release" style="grid-template-columns:minmax(0,1fr)">
       <div>
-        <h2 class="display-s" id="new-title">Check your shot. Then go live.</h2>
-        <p class="lede" style="margin-top:16px">Start now opens a preview, like any camera app: your picture, the mic meter and your connections, with nothing sent yet. When it looks right, go live on your camera, or on your Starting soon card while you finish setting up.</p>
+        <h2 class="display-s" id="new-title">Let chat talk.</h2>
+        <p class="lede" style="margin-top:16px">Viewers can make your stream speak: a channel points reward reads their message out loud, and alerts can thank people by name as they come in. It's all said on your phone, in one bright, dramatic voice, and mixed into the stream without going through your mic.</p>
         <div class="figures" role="list">
-          <div role="listitem"><span class="label">Scenes of your own</span><span class="v">4</span></div>
-          <div role="listitem"><span class="label">Card fonts</span><span class="v">8</span></div>
-          <div role="listitem"><span class="label">Captions sent off the phone</span><span class="v">0</span></div>
+          <div role="listitem"><span class="label">Kinds of alert you can say</span><span class="v">6</span></div>
+          <div role="listitem"><span class="label">Seconds for mods to skip</span><span class="v">3</span></div>
+          <div role="listitem"><span class="label">Slurs it will ever say</span><span class="v">0</span></div>
         </div>
         <div class="rows">
-          <div class="row"><h3>Live captions</h3><p>What viewers hear you say, recognised on your phone and written on the stream. Turn them on or off while live from Scenes.</p></div>
-          <div class="row"><h3>Your own scenes</h3><p>Up to four cards of your own, like Lunch or Q&amp;A. They're in Scenes, on the mod remote, and mods can type <code>!scene lunch</code>.</p></div>
-          <div class="row"><h3>Cards your way</h3><p>Eight fonts, text size and colour, any accent colour, and music that plays under a card while it's up.</p></div>
-          <div class="row"><h3>Alerts your way</h3><p>Which alerts show and the smallest worth showing, where they go, how big, how long, their colours, and a sound of your own for each kind.</p></div>
-          <div class="row"><h3>A calmer app</h3><p>Every screen gone through to cut clutter. The live pill says Test or Live and what viewers get in one line, Home leads with "Ready for 1080p", and advanced settings fold away until you want them.</p></div>
-          <div class="row"><h3>Steadier streams</h3><p>Smarter bitrate control on combined connections, even frame timing, and Wi‑Fi dropping mid-stream no longer flashes the Signal lost card.</p></div>
+          <div class="row"><h3>Make me talk</h3><p>Fullbars adds the reward to your channel and pauses it whenever you're not live. Points for anything that isn't said come back.</p></div>
+          <div class="row"><h3>Alerts said out loud</h3><p>For each kind: nothing, a thank-you, or the thank-you and their message, from the size you choose. A thank-you plays while its alert is on screen.</p></div>
+          <div class="row"><h3>Safe by default</h3><p>The worst slurs, your own blocked words and your Twitch blocked terms are filtered out. Mods can type <code>!skip</code>, and you can skip from Scenes.</p></div>
+          <div class="row"><h3>You hear it too</h3><p>In your earbuds as viewers do. On a Test stream with no earbuds in, it plays from the phone's speaker.</p></div>
+          <div class="row"><h3>Alerts you can't miss</h3><p>A firm buzz for every alert, even with another app open, and who sent it on the live screen.</p></div>
+          <div class="row"><h3>Captions that sit right</h3><p>Lower on the picture, smaller, and with shorter lines, after feedback from viewers.</p></div>
         </div>
-        <p class="help" style="margin-top:16px">Running your own server? Update it too: <code>git pull</code>, then <code>server/brb/deploy.sh</code> again.</p>
+        <p class="help" style="margin-top:16px">Running your own server? Update it too: <code>git pull</code>, then <code>server/brb/deploy.sh</code> again, for the mod remote's Skip button.</p>
       </div>
-      <figure class="shot reg" style="margin:0">
-        <span class="reg-b"></span>
-        <img src="/img/settings-cards.jpg" width="540" height="1124" loading="lazy" alt="Settings, Scene cards: the card chooser in two groups, Card (Starting soon, BRB, Privacy, Ending and a plus Scene key) and Automatic (Signal lost, Weak signal, Camera lost), over a preview of the Starting soon card.">
-        <figcaption>Settings › Scene cards.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
